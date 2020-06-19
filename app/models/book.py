@@ -22,7 +22,7 @@ class Book(db.Model):
     pages = Column(Integer)
     # 出版日期
     pubdate = Column(String(20))
-    # isbn编码
+    # isbn
     isbn = Column(String(15), nullable=False, unique=True)
     # 简介
     summary = Column(String(1000))

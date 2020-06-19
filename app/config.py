@@ -5,7 +5,7 @@ class BaseConfig:
     JSON_AS_ASCII = False
     PER_PAGE = 15
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@127.0.0.1:3306/fish?charset=UTF8MB4'.format(db_pwd)
-
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
