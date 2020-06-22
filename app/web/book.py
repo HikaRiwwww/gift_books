@@ -1,4 +1,4 @@
-from flask import jsonify, request
+from flask import jsonify, request, render_template, flash
 
 from utils.api import Api
 from .blueprint import web
@@ -14,10 +14,12 @@ def search_book():
     """
     # 根据查询参数拼接不同的api
     form = SearchForm(request.args)
+    result = {}
     if form.validate():
         q = form.q.data.strip()
         page = form.page.data
         result = Api.get(q)
-        return jsonify(result)
+        # return jsonify(result)
     else:
-        return jsonify(form.errors)
+        flash('查询参数有误，请重新输入')
+    return render_template('test.html', data=result)

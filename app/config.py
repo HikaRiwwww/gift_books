@@ -1,4 +1,5 @@
 from secret import db_pwd
+from secret import SECRET_KEY
 
 
 class BaseConfig:
@@ -6,6 +7,8 @@ class BaseConfig:
     PER_PAGE = 15
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@127.0.0.1:3306/fish?charset=UTF8MB4'.format(db_pwd)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = SECRET_KEY
+
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
